@@ -280,6 +280,11 @@
   color: var(--text-secondary);
 }
 
+.recent-header-actions {
+  margin-left: auto;
+  position: relative;
+}
+
 .recent-grid {
   display: flex;
   flex-wrap: wrap;
@@ -422,24 +427,22 @@
   width: var(--card-size);
   height: var(--card-size);
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
   border: 1px solid var(--border-glass);
   border-radius: var(--card-radius);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition-normal);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
   position: relative;
-  contain: layout style;
+  contain: layout style paint;
   overflow: hidden;
   color: var(--text-primary);
 }
 
 .symbol-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
   border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
 }
 
 .symbol-card.copied {

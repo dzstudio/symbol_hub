@@ -22,7 +22,7 @@ function handleClear(count) {
     <div class="recent-header">
       <span class="recent-header-icon" v-html="icons.clock"></span>
       <span class="recent-title">{{ t('recent.title') }}</span>
-      <div style="margin-left:auto;position:relative">
+      <div class="recent-header-actions">
         <button class="recent-clear-btn" @click.stop="showClearMenu = !showClearMenu">清空</button>
         <div v-if="showClearMenu" class="recent-clear-menu" @click.stop>
           <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 3))">清空 1/3</button>

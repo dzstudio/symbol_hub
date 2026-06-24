@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from 'vue'
 import { categories } from '../data/categories.js'
 import { symbols } from '../data/symbols.js'
 import SymbolCard from './SymbolCard.vue'
@@ -10,27 +9,31 @@ const props = defineProps({
 
 const emit = defineEmits(['copy'])
 
-const grouped = computed(() => {
-  const result = []
-  for (const cat of categories) {
-    const catSymbols = symbols.filter(s => s.category === cat.id)
-    if (catSymbols.length === 0) continue
+// Pre-build category→symbols map (static data, computed once at module load)
+const catMap = new Map()
+for (const s of symbols) {
+  if (!catMap.has(s.category)) catMap.set(s.category, [])
+  catMap.get(s.category).push(s)
+}
 
-    // Only 'common' category shows subcategory headers
+const subMap = new Map()
+for (const s of symbols) {
+  const key = s.category + '/' + s.sub
+  if (!subMap.has(key)) subMap.set(key, [])
+  subMap.get(key).push(s)
+}
+
+const grouped = categories
+  .filter(cat => catMap.has(cat.id))
+  .map(cat => {
     if (cat.id === 'common') {
-      const subs = []
-      for (const sub of cat.subs) {
-        const subSymbols = catSymbols.filter(s => s.sub === sub.id)
-        if (subSymbols.length === 0) continue
-        subs.push({ ...sub, symbols: subSymbols })
-      }
-      result.push({ ...cat, subs, showSubs: true })
-    } else {
-      result.push({ ...cat, symbols: catSymbols, showSubs: false })
+      const subs = cat.subs
+        .filter(sub => subMap.has('common/' + sub.id))
+        .map(sub => ({ ...sub, symbols: subMap.get('common/' + sub.id) }))
+      return { ...cat, subs, showSubs: true }
     }
-  }
-  return result
-})
+    return { ...cat, symbols: catMap.get(cat.id), showSubs: false }
+  })
 </script>
 
 <template>
@@ -40,7 +43,6 @@ const grouped = computed(() => {
       <div class="category-line"></div>
     </div>
 
-    <!-- Common category: show subcategory groups -->
     <template v-if="cat.showSubs">
       <div v-for="sub in cat.subs" :key="sub.id" class="subcategory-section">
         <h3 class="subcategory-title">{{ t(sub.nameKey) }}</h3>
@@ -55,7 +57,6 @@ const grouped = computed(() => {
       </div>
     </template>
 
-    <!-- Other categories: flat grid -->
     <div v-else class="symbol-grid">
       <SymbolCard
         v-for="s in cat.symbols"

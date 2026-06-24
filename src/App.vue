@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, nextTick, watch } from 'vue'
 import { categories } from './data/categories.js'
 import { useTheme } from './composables/useTheme.js'
 import { useI18n } from './composables/useI18n.js'
@@ -23,9 +23,14 @@ const { query, results, isSearching, setQuery } = useSearch()
 const { recent, add: addRecent, removeRecent } = useRecent()
 const { copy } = useClipboard()
 
-// scroll spy
-const sectionIds = computed(() => categories.map(c => 'cat-' + c.id))
-const { activeSection, scrollTo, setActiveSection } = useScrollSpy(sectionIds)
+// scroll spy (plain array, not computed — categories is static)
+const sectionIds = categories.map(c => 'cat-' + c.id)
+const { activeSection, scrollTo, setActiveSection, reobserve } = useScrollSpy(sectionIds)
+
+// Re-observe when switching back from search to grid
+watch(isSearching, (searching) => {
+  if (!searching) nextTick(reobserve)
+})
 
 // modal state
 const showSettings = ref(false)
@@ -38,7 +43,8 @@ function showToast(message) {
   const id = ++toastId
   toasts.value.push({ id, message })
   setTimeout(() => {
-    toasts.value = toasts.value.filter(t => t.id !== id)
+    const idx = toasts.value.findIndex(t => t.id === id)
+    if (idx !== -1) toasts.value.splice(idx, 1)
   }, 2000)
 }
 

@@ -1,6 +1,15 @@
 import { ref, computed } from 'vue'
 import { symbols } from '../data/symbols.js'
 
+// Pre-compute lowercase index (static data, computed once)
+const searchIndex = symbols.map(s => ({
+  ref: s,
+  char: s.char.toLowerCase(),
+  name: s.name.toLowerCase(),
+  nameZh: s.nameZh.toLowerCase(),
+  unicode: s.unicode.toLowerCase()
+}))
+
 export function useSearch() {
   const query = ref('')
   let timer = null
@@ -8,12 +17,14 @@ export function useSearch() {
   const results = computed(() => {
     const q = query.value.trim().toLowerCase()
     if (!q) return []
-    return symbols.filter(s =>
-      s.char.toLowerCase().includes(q) ||
-      s.name.toLowerCase().includes(q) ||
-      s.nameZh.toLowerCase().includes(q) ||
-      s.unicode.toLowerCase().includes(q)
-    )
+    return searchIndex
+      .filter(s =>
+        s.char.includes(q) ||
+        s.name.includes(q) ||
+        s.nameZh.includes(q) ||
+        s.unicode.includes(q)
+      )
+      .map(s => s.ref)
   })
 
   const isSearching = computed(() => query.value.trim().length > 0)
