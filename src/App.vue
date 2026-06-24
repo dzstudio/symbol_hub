@@ -19,7 +19,7 @@ import ToastContainer from './components/ToastContainer.vue'
 // composables
 const { theme, setTheme, cycleTheme } = useTheme()
 const { lang, t, setLang, supportedLangs } = useI18n()
-const { query, results, isSearching, setQuery } = useSearch()
+const { query, results, isSearching, setQuery, clearSearch } = useSearch()
 const { recent, add: addRecent, removeRecent } = useRecent()
 const { copy } = useClipboard()
 
@@ -75,6 +75,7 @@ function handleClearRecent(count) {
     :lang="lang"
     :langs="supportedLangs"
     @search="setQuery"
+    @clear-search="clearSearch"
     @cycle-theme="cycleTheme"
     @select-lang="setLang"
   />

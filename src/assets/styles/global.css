@@ -135,6 +135,41 @@ html {
   color: rgba(232, 251, 232, 0.5);
 }
 
+.navbar-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #6b7280;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  transition: background 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+
+.navbar-search-clear:hover {
+  background: #d1d5db;
+  color: #374151;
+}
+
+[data-theme="dark"] .navbar-search-clear {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(232, 251, 232, 0.6);
+}
+
+[data-theme="dark"] .navbar-search-clear:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #e8fbe8;
+}
+
 .navbar-actions {
   display: flex;
   align-items: center;

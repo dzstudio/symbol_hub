@@ -10,12 +10,21 @@ const props = defineProps({
   langs: { type: Array, required: true }
 })
 
-const emit = defineEmits(['search', 'cycleTheme', 'selectLang'])
+const emit = defineEmits(['search', 'clearSearch', 'cycleTheme', 'selectLang'])
 
 const showLang = ref(false)
+const searchValue = ref('')
+const inputRef = ref(null)
 
 function onInput(e) {
+  searchValue.value = e.target.value
   emit('search', e.target.value)
+}
+
+function clearSearch() {
+  searchValue.value = ''
+  emit('clearSearch')
+  inputRef.value?.focus()
 }
 
 function toggleLang() {
@@ -37,10 +46,18 @@ function selectLang(l) {
     <div class="navbar-search">
       <span class="navbar-search-icon" v-html="icons.search"></span>
       <input
+        ref="inputRef"
         type="text"
         :placeholder="t('nav.search')"
+        :value="searchValue"
         @input="onInput"
       />
+      <button
+        v-if="searchValue"
+        class="navbar-search-clear"
+        @click="clearSearch"
+        title="清空"
+      >✕</button>
     </div>
     <div class="navbar-actions">
       <button class="navbar-btn" :title="t('nav.theme')" @click="emit('cycleTheme')" v-html="themeIcons[theme]"></button>
