@@ -5,7 +5,8 @@
       "Bash(git commit -m 'feat: SymbolHub unicode symbol library - Vue 3 + Vite *)",
       "Bash(git remote *)",
       "Bash(git push *)",
-      "Bash(git commit -m 'perf: optimize rendering performance *)"
+      "Bash(git commit -m 'perf: optimize rendering performance *)",
+      "Bash(git commit *)"
     ]
   }
 }

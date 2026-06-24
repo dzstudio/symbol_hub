@@ -3,6 +3,11 @@
    ============================================ */
 
 /* --- Layout --- */
+html {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+}
+
 .app-layout {
   padding-top: var(--nav-height);
   min-height: 100vh;
