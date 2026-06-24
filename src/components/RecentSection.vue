@@ -1,0 +1,44 @@
+<script setup>
+import { ref } from 'vue'
+import { icons } from '../assets/icons.js'
+
+const props = defineProps({
+  recent: { type: Array, required: true },
+  t: { type: Function, required: true }
+})
+
+const emit = defineEmits(['copy', 'clearPart'])
+
+const showClearMenu = ref(false)
+
+function handleClear(count) {
+  emit('clearPart', count)
+  showClearMenu.value = false
+}
+</script>
+
+<template>
+  <div v-if="recent.length > 0" class="recent-section">
+    <div class="recent-header">
+      <span class="recent-header-icon" v-html="icons.clock"></span>
+      <span class="recent-title">{{ t('recent.title') }}</span>
+      <div style="margin-left:auto;position:relative">
+        <button class="recent-clear-btn" @click.stop="showClearMenu = !showClearMenu">清空</button>
+        <div v-if="showClearMenu" class="recent-clear-menu" @click.stop>
+          <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 3))">清空 1/3</button>
+          <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 2))">清空一半</button>
+          <button class="recent-clear-option recent-clear-option--danger" @click="handleClear(recent.length)">全部清空</button>
+          <button class="recent-clear-option" @click="showClearMenu = false">取消</button>
+        </div>
+      </div>
+    </div>
+    <div class="recent-grid">
+      <div
+        v-for="char in recent"
+        :key="char"
+        class="recent-char"
+        @click="emit('copy', char)"
+      >{{ char }}</div>
+    </div>
+  </div>
+</template>
