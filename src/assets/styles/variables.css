@@ -1,23 +1,24 @@
 /* ============================================
    CSS Design Tokens — Light & Dark modes
+   Tiffany Blue (#0ABAB5)
    ============================================ */
 :root {
-  --bg-gradient: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 30%, #ffffff 70%);
+  --bg-gradient: linear-gradient(135deg, #e0f7f6 0%, #eafafa 30%, #ffffff 70%);
   --bg-glass: rgba(255, 255, 255, 0.72);
   --bg-glass-hover: rgba(255, 255, 255, 0.85);
   --bg-glass-active: rgba(255, 255, 255, 0.92);
-  --color-primary: #22c55e;
-  --color-primary-light: #86efac;
-  --color-primary-dark: #16a34a;
-  --color-accent: #10b981;
+  --color-primary: #0ABAB5;
+  --color-primary-light: #5CE5DF;
+  --color-primary-dark: #089E99;
+  --color-accent: #0ABAB5;
   --text-primary: #1a1a2e;
   --text-secondary: #6b7280;
   --text-tertiary: #9ca3af;
-  --border-glass: rgba(34, 197, 94, 0.12);
+  --border-glass: rgba(10, 186, 181, 0.12);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 32px rgba(34, 197, 94, 0.15);
-  --shadow-glow: 0 0 20px rgba(34, 197, 94, 0.4);
+  --shadow-lg: 0 8px 32px rgba(10, 186, 181, 0.15);
+  --shadow-glow: 0 0 20px rgba(10, 186, 181, 0.4);
   --nav-height: 72px;
   --content-max-width: 1024px;
   --card-size: 32px;
@@ -30,20 +31,20 @@
 }
 
 [data-theme="dark"] {
-  --bg-gradient: linear-gradient(135deg, #0a1f0d 0%, #0d1117 50%, #111827 100%);
-  --bg-glass: rgba(30, 40, 30, 0.6);
-  --bg-glass-hover: rgba(40, 55, 40, 0.75);
-  --bg-glass-active: rgba(50, 65, 50, 0.85);
-  --color-primary: #4ade80;
-  --color-primary-light: #86efac;
-  --color-primary-dark: #22c55e;
-  --color-accent: #34d399;
+  --bg-gradient: linear-gradient(135deg, #0a1a1a 0%, #0d1117 50%, #111827 100%);
+  --bg-glass: rgba(20, 30, 30, 0.6);
+  --bg-glass-hover: rgba(30, 45, 45, 0.75);
+  --bg-glass-active: rgba(40, 55, 55, 0.85);
+  --color-primary: #5CE5DF;
+  --color-primary-light: #81D8D0;
+  --color-primary-dark: #0ABAB5;
+  --color-accent: #5CE5DF;
   --text-primary: #f0fdf4;
   --text-secondary: #9ca3af;
   --text-tertiary: #6b7280;
-  --border-glass: rgba(74, 222, 128, 0.15);
+  --border-glass: rgba(92, 229, 223, 0.15);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 32px rgba(74, 222, 128, 0.1);
-  --shadow-glow: 0 0 20px rgba(74, 222, 128, 0.3);
+  --shadow-lg: 0 8px 32px rgba(92, 229, 223, 0.1);
+  --shadow-glow: 0 0 20px rgba(92, 229, 223, 0.3);
 }

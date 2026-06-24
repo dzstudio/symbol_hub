@@ -110,7 +110,7 @@ html {
 
 .navbar-search input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+  box-shadow: 0 0 0 3px rgba(10, 186, 181, 0.1);
 }
 
 .navbar-search input::placeholder {
@@ -168,7 +168,7 @@ html {
 
 [data-theme="dark"] .navbar-btn:hover {
   background: rgba(255, 255, 255, 0.1);
-  color: #86efac;
+  color: #5CE5DF;
 }
 
 .navbar-btn svg {
