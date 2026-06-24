@@ -23,12 +23,12 @@ function handleClear(count) {
       <span class="recent-header-icon" v-html="icons.clock"></span>
       <span class="recent-title">{{ t('recent.title') }}</span>
       <div class="recent-header-actions">
-        <button class="recent-clear-btn" @click.stop="showClearMenu = !showClearMenu">清空</button>
+        <button class="recent-clear-btn" @click.stop="showClearMenu = !showClearMenu">{{ t('recent.clear') }}</button>
         <div v-if="showClearMenu" class="recent-clear-menu" @click.stop>
-          <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 3))">清空 1/3</button>
-          <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 2))">清空一半</button>
-          <button class="recent-clear-option recent-clear-option--danger" @click="handleClear(recent.length)">全部清空</button>
-          <button class="recent-clear-option" @click="showClearMenu = false">取消</button>
+          <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 3))">{{ t('recent.clearThird') }}</button>
+          <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 2))">{{ t('recent.clearHalf') }}</button>
+          <button class="recent-clear-option recent-clear-option--danger" @click="handleClear(recent.length)">{{ t('recent.clearAll') }}</button>
+          <button class="recent-clear-option" @click="showClearMenu = false">{{ t('recent.cancel') }}</button>
         </div>
       </div>
     </div>

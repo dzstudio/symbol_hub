@@ -6,7 +6,12 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(git commit -m 'perf: optimize rendering performance *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(sed -i '' '/'\\\\''recent.clear'\\\\'': '\\\\''清空'\\\\''/a\\\\ *)",
+      "Bash(sed -i '' '/'\\\\''recent.clear'\\\\'': '\\\\''Clear'\\\\''/a\\\\ *)",
+      "Bash(sed -i '' '/'\\\\''recent.clear'\\\\'': '\\\\''クリア'\\\\''/a\\\\ *)",
+      "Bash(sed -i '' '/'\\\\''recent.clear'\\\\'': '\\\\''삭제'\\\\''/a\\\\ *)",
+      "Bash(sed -i '' '/'\\\\''recent.clear'\\\\'': '\\\\''Borrar'\\\\''/a\\\\ *)"
     ]
   }
 }

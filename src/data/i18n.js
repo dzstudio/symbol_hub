@@ -70,6 +70,10 @@ export const i18n = {
     'recent.empty': '还没有使用记录',
     'recent.copyAll': '复制全部',
     'recent.clear': '清空',
+    'recent.clearThird': '清空 1/3',
+    'recent.clearHalf': '清空一半',
+    'recent.clearAll': '全部清空',
+    'recent.cancel': '取消',
     'search.noResults': '未找到匹配的符号',
     'search.hint': '试试其他关键词'
   },
@@ -139,6 +143,10 @@ export const i18n = {
     'recent.empty': 'No recent symbols',
     'recent.copyAll': 'Copy all',
     'recent.clear': 'Clear',
+    'recent.clearThird': 'Clear 1/3',
+    'recent.clearHalf': 'Clear half',
+    'recent.clearAll': 'Clear all',
+    'recent.cancel': 'Cancel',
     'search.noResults': 'No matching symbols found',
     'search.hint': 'Try different keywords'
   },
@@ -208,6 +216,10 @@ export const i18n = {
     'recent.empty': '使用履歴がありません',
     'recent.copyAll': 'すべてコピー',
     'recent.clear': 'クリア',
+    'recent.clearThird': '1/3をクリア',
+    'recent.clearHalf': '半分をクリア',
+    'recent.clearAll': 'すべてクリア',
+    'recent.cancel': 'キャンセル',
     'search.noResults': '一致するシンボルが見つかりません',
     'search.hint': '別のキーワードをお試しください'
   },
@@ -277,6 +289,10 @@ export const i18n = {
     'recent.empty': '사용 기록이 없습니다',
     'recent.copyAll': '모두 복사',
     'recent.clear': '삭제',
+    'recent.clearThird': '1/3 삭제',
+    'recent.clearHalf': '절반 삭제',
+    'recent.clearAll': '모두 삭제',
+    'recent.cancel': '취소',
     'search.noResults': '일치하는 심볼이 없습니다',
     'search.hint': '다른 키워드를 시도하세요'
   },
@@ -346,6 +362,10 @@ export const i18n = {
     'recent.empty': 'Sin símbolos recientes',
     'recent.copyAll': 'Copiar todo',
     'recent.clear': 'Borrar',
+    'recent.clearThird': 'Borrar 1/3',
+    'recent.clearHalf': 'Borrar mitad',
+    'recent.clearAll': 'Borrar todo',
+    'recent.cancel': 'Cancelar',
     'search.noResults': 'No se encontraron símbolos',
     'search.hint': 'Prueba con otras palabras'
   },
@@ -415,6 +435,10 @@ export const i18n = {
     'recent.empty': 'Aucun symbole récent',
     'recent.copyAll': 'Tout copier',
     'recent.clear': 'Effacer',
+    'recent.clearThird': 'Effacer 1/3',
+    'recent.clearHalf': 'Effacer la moitié',
+    'recent.clearAll': 'Tout effacer',
+    'recent.cancel': 'Annuler',
     'search.noResults': 'Aucun symbole trouvé',
     'search.hint': 'Essayez d\'autres mots-clés'
   },
@@ -484,6 +508,10 @@ export const i18n = {
     'recent.empty': 'Keine Symbole verwendet',
     'recent.copyAll': 'Alle kopieren',
     'recent.clear': 'Löschen',
+    'recent.clearThird': '1/3 löschen',
+    'recent.clearHalf': 'Hälfte löschen',
+    'recent.clearAll': 'Alle löschen',
+    'recent.cancel': 'Abbrechen',
     'search.noResults': 'Keine Symbole gefunden',
     'search.hint': 'Versuchen Sie andere Suchbegriffe'
   }
