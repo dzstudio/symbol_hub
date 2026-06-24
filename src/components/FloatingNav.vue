@@ -19,7 +19,7 @@ const emit = defineEmits(['navigate'])
       :class="{ active: activeSection === 'cat-' + cat.id }"
       @click="emit('navigate', 'cat-' + cat.id)"
     >
-      <span class="floating-nav-icon" v-once v-html="categoryIcons[cat.icon]"></span>
+      <span class="floating-nav-icon" v-html="categoryIcons[cat.icon]"></span>
       <span class="floating-nav-label">{{ t('cat.' + cat.id) }}</span>
     </button>
   </nav>
