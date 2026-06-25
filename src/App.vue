@@ -62,6 +62,14 @@ async function handleCopy(char) {
   }
 }
 
+async function handleCopyAll() {
+  const allChars = recent.value.join('')
+  const ok = await copy(allChars)
+  if (ok) {
+    showToast(t('toast.recentCopied'))
+  }
+}
+
 function handleNavigate(id) {
   setActiveSection(id)
   scrollTo(id)
@@ -92,6 +100,7 @@ function handleClearRecent(count) {
         :recent="recent"
         :t="t"
         @copy="handleCopy"
+        @copy-all="handleCopyAll"
         @clear-part="handleClearRecent"
       />
 

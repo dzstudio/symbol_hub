@@ -7,7 +7,7 @@ const props = defineProps({
   t: { type: Function, required: true }
 })
 
-const emit = defineEmits(['copy', 'clearPart'])
+const emit = defineEmits(['copy', 'copyAll', 'clearPart'])
 
 const showClearMenu = ref(false)
 
@@ -23,6 +23,7 @@ function handleClear(count) {
       <span class="recent-header-icon" v-html="icons.clock"></span>
       <span class="recent-title">{{ t('recent.title') }}</span>
       <div class="recent-header-actions">
+        <button class="recent-copy-all-btn" @click.stop="emit('copyAll')">{{ t('recent.copyAll') }}</button>
         <button class="recent-clear-btn" @click.stop="showClearMenu = !showClearMenu">{{ t('recent.clear') }}</button>
         <div v-if="showClearMenu" class="recent-clear-menu" @click.stop>
           <button class="recent-clear-option" @click="handleClear(Math.ceil(recent.length / 3))">{{ t('recent.clearThird') }}</button>
