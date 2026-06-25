@@ -54,24 +54,50 @@
     }
     </script>
 
-    <!-- Baidu Analytics -->
+    <!-- Analytics (Baidu for CN, GA4 for others) -->
     <script>
-      var _hmt = _hmt || [];
-      (function() {
+      const BAIDU_ID = "6524bc9edbc2e238c18eb01bdb4c6c6b";
+      const GA4_ID = "G-SCK086KN0D";
+
+      function loadBaidu() {
+        window._hmt = window._hmt || [];
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?6524bc9edbc2e238c18eb01bdb4c6c6b";
+        hm.src = "https://hm.baidu.com/hm.js?" + BAIDU_ID;
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
+      }
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SCK086KN0D"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SCK086KN0D');
+      function loadGA4() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA4_ID);
+      }
+
+      // 使用 ip-api.com (国内可用) 检测地区
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://ip-api.com/json/?fields=countryCode', true);
+      xhr.timeout = 3000;
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          var data = JSON.parse(xhr.responseText);
+          if (data.countryCode === 'CN') {
+            loadBaidu();
+          } else {
+            loadGA4();
+          }
+        } else {
+          loadBaidu(); // 默认国内
+        }
+      };
+      xhr.onerror = function() { loadBaidu(); };
+      xhr.ontimeout = function() { loadBaidu(); };
+      xhr.send();
     </script>
   </head>
   <body>
