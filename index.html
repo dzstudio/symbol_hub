@@ -54,40 +54,24 @@
     }
     </script>
 
-    <!-- Baidu Analytics & GA4 (with geo detection) -->
+    <!-- Baidu Analytics -->
     <script>
-      const BAIDU_TONGJI_ID = "6524bc9edbc2e238c18eb01bdb4c6c6b";
-      const GA4_MEASUREMENT_ID = "G-SCK086KN0D";
-
-      function loadBaidu() {
-        window._hmt = window._hmt || [];
-        const s = document.createElement('script');
-        s.src = `https://hm.baidu.com/hm.js?${BAIDU_TONGJI_ID}`;
-        document.head.appendChild(s);
-      }
-
-      function loadGA4() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        const s1 = document.createElement('script');
-        s1.async = true;
-        s1.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
-        document.head.appendChild(s1);
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', GA4_MEASUREMENT_ID, { send_page_view: false });
-      }
-
-      (async function initAnaly() {
-        try {
-          const res = await fetch('https://ipapi.co/json/');
-          const info = await res.json();
-          if (info.country_code === 'CN') loadBaidu();
-          else loadGA4();
-        } catch {
-          loadBaidu();
-        }
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6524bc9edbc2e238c18eb01bdb4c6c6b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
       })();
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SCK086KN0D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SCK086KN0D');
     </script>
   </head>
   <body>
