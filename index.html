@@ -2,9 +2,93 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SymbolHub - Unicode 符号仓库</title>
+
+    <!-- SEO Meta Tags -->
+    <title>SymbolHub - Unicode 特殊符号仓库 | 一键复制即用</title>
+    <meta name="description" content="SymbolHub 是一个 Unicode 特殊符号合集网站，收录数学符号、图形符号、排版符号、货币符号、Emoji 等各类特殊字符，支持一键复制，即用即走。" />
+    <meta name="keywords" content="Unicode,特殊符号,数学符号,Emoji,符号复制,特殊字符,Unicode symbols,math symbols,emoji,special characters,copy symbols" />
+    <meta name="author" content="Dillon Zhang" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0ABAB5" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dillonz.com/symbolhub/" />
+    <meta property="og:title" content="SymbolHub - Unicode 特殊符号仓库" />
+    <meta property="og:description" content="收录数学符号、图形符号、排版符号、货币符号、Emoji 等各类特殊字符，支持一键复制，即用即走。" />
+    <meta property="og:image" content="https://dillonz.com/symbolhub/favicon.svg" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="SymbolHub" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://dillonz.com/symbolhub/" />
+    <meta name="twitter:title" content="SymbolHub - Unicode Symbol Library" />
+    <meta name="twitter:description" content="A collection of special Unicode symbols including math, emoji, and more. Copy and use instantly." />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dillonz.com/symbolhub/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/symbolhub/favicon.svg" />
+    <link rel="apple-touch-icon" href="/symbolhub/favicon.svg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SymbolHub",
+      "description": "Unicode 特殊符号合集网站，收录数学符号、图形符号、排版符号、货币符号、Emoji 等各类特殊字符，支持一键复制。",
+      "url": "https://dillonz.com/symbolhub/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web",
+      "inLanguage": ["zh-CN", "en"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      }
+    }
+    </script>
+
+    <!-- Baidu Analytics & GA4 (with geo detection) -->
+    <script>
+      const BAIDU_TONGJI_ID = "6524bc9edbc2e238c18eb01bdb4c6c6b";
+      const GA4_MEASUREMENT_ID = "G-SCK086KN0D";
+
+      function loadBaidu() {
+        window._hmt = window._hmt || [];
+        const s = document.createElement('script');
+        s.src = `https://hm.baidu.com/hm.js?${BAIDU_TONGJI_ID}`;
+        document.head.appendChild(s);
+      }
+
+      function loadGA4() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        const s1 = document.createElement('script');
+        s1.async = true;
+        s1.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
+        document.head.appendChild(s1);
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA4_MEASUREMENT_ID, { send_page_view: false });
+      }
+
+      (async function initAnaly() {
+        try {
+          const res = await fetch('https://ipapi.co/json/');
+          const info = await res.json();
+          if (info.country_code === 'CN') loadBaidu();
+          else loadGA4();
+        } catch {
+          loadBaidu();
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
