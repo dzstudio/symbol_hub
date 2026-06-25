@@ -1,0 +1,16 @@
+{
+  "skills": [
+    {
+      "name": "deploy",
+      "description": "部署 SymbolHub 项目到远程服务器",
+      "parameters": {
+        "target_directory": {
+          "type": "string",
+          "description": "远程服务器上的目标目录路径",
+          "required": true
+        }
+      },
+      "script": ".claude/skills/deploy.sh"
+    }
+  ]
+}

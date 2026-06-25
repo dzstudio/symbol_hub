@@ -134,6 +134,22 @@ Build configuration in `vite.config.js`:
 base: '/symbolhub/'  // Required for subdirectory deployment
 ```
 
+**使用 Deploy Skill:**
+
+```bash
+# 部署到指定目录
+.claude/skills/deploy.sh /var/www/sites/index/symbolhub/
+
+# 或者在 Claude Code 中调用
+# Claude Code 会自动执行构建并部署
+```
+
+**配置信息：**
+- 服务器：`REDACTED_HOST`
+- 用户：`root`
+- SSH 密钥：`~/.ssh/id_rsa`
+- 默认部署目录：`/var/www/sites/index/symbolhub/`
+
 ### Performance Notes
 
 - Symbol cards don't use `backdrop-filter` (GPU intensive)
