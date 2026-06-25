@@ -32,6 +32,11 @@ watch(isSearching, (searching) => {
   if (!searching) nextTick(reobserve)
 })
 
+// Dynamic lang attribute update
+watch(lang, (newLang) => {
+  document.documentElement.lang = newLang
+}, { immediate: true })
+
 // modal state
 const showSettings = ref(false)
 

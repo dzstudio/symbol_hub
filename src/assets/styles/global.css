@@ -233,10 +233,17 @@ html {
 }
 
 /* --- Floating Category Nav --- */
-.floating-nav {
+.floating-nav-wrapper {
   position: fixed;
   left: calc(50% + var(--content-max-width) / 2 + 16px);
   top: calc(var(--nav-height) + 24px);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.floating-nav {
   background: var(--bg-glass);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -246,7 +253,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  z-index: 90;
   box-shadow: var(--shadow-md);
 }
 
@@ -296,6 +302,66 @@ html {
 .floating-nav-label {
   font-size: 13px;
   font-weight: 500;
+}
+
+/* --- Draggable Floating Nav --- */
+.floating-nav-drag-handle {
+  width: 100%;
+  height: 28px;
+  margin-top: 6px;
+  border-radius: 10px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-glass);
+  color: var(--text-tertiary);
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.floating-nav-drag-handle:hover {
+  color: var(--color-primary);
+}
+
+.floating-nav-wrapper--dragging {
+  transition: none;
+}
+
+.floating-nav-wrapper--dragging .floating-nav {
+  box-shadow: 0 8px 24px rgba(10, 186, 181, 0.4);
+}
+
+.drag-dots {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* --- Mobile: Non-transparent floating nav --- */
+@media (max-width: 768px) {
+  .floating-nav {
+    background: #ffffff;
+    border-color: #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .floating-nav-drag-handle {
+    background: #ffffff;
+    border-color: #e5e7eb;
+  }
+
+  [data-theme="dark"] .floating-nav {
+    background: #1a1a2e;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  [data-theme="dark"] .floating-nav-drag-handle {
+    background: #1a1a2e;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* --- Recent Section --- */
@@ -721,7 +787,7 @@ html {
 
 /* --- Responsive --- */
 @media (max-width: 1200px) {
-  .floating-nav {
+  .floating-nav-wrapper {
     left: auto;
     right: 12px;
   }
@@ -738,9 +804,11 @@ html {
   .main-content {
     padding: 16px 12px;
   }
-  .floating-nav {
+  .floating-nav-wrapper {
     left: auto;
     right: 8px;
+  }
+  .floating-nav {
     padding: 6px 4px;
     gap: 2px;
   }
