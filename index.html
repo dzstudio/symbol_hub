@@ -68,15 +68,18 @@
       }
 
       function loadGA4() {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-        document.head.appendChild(s);
+        // 先初始化 gtag 函数
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
         gtag('js', new Date());
         gtag('config', GA4_ID);
+
+        // 再加载 gtag.js
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+        document.head.appendChild(s);
       }
 
       // 使用 ip-api.com (国内可用) 检测地区
