@@ -42,6 +42,7 @@ function selectLang(l) {
     <div class="navbar-logo">
       <img src="/favicon.svg" alt="Symbol Hub" class="navbar-logo-img" />
       <span class="navbar-logo-text">Symbol Hub</span>
+      <span class="navbar-logo-subtitle">{{ t('nav.subtitle') }}</span>
     </div>
     <div class="navbar-search">
       <span class="navbar-search-icon" v-html="icons.search"></span>
