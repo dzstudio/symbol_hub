@@ -60,9 +60,10 @@ function detectLang() {
 const lang = ref(detectLang())
 
 export function useI18n() {
-  // 监听语言变化，更新 HTML lang 属性
+  // 监听语言变化，更新 HTML lang 属性和页面标题
   watch(lang, (newLang) => {
     document.documentElement.lang = newLang
+    document.title = i18n[newLang]?.['app.title'] || i18n['en']?.['app.title'] || 'SymbolHub'
   }, { immediate: true })
 
   function t(key) {

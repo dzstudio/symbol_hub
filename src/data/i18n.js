@@ -4,7 +4,7 @@
  */
 export const i18n = {
   'zh-CN': {
-    'app.title': 'SymbolHub - Unicode 符号仓库',
+    'app.title': 'SymbolHub - Unicode 特殊符号仓库 | 一键复制即用',
     'nav.search': '搜索符号、名称、Unicode...',
     'nav.theme': '切换主题',
     'nav.subtitle': '特殊符号合集，一键复制即用',
@@ -80,7 +80,7 @@ export const i18n = {
     'search.hint': '试试其他关键词'
   },
   'en': {
-    'app.title': 'SymbolHub - Unicode Symbol Library',
+    'app.title': 'SymbolHub - Unicode Symbol Library | Copy & Use Instantly',
     'nav.search': 'Search symbols, names, Unicode...',
     'nav.theme': 'Toggle theme',
     'nav.subtitle': 'Special symbol collection, copy & use instantly',
@@ -155,7 +155,7 @@ export const i18n = {
     'search.hint': 'Try different keywords'
   },
   'ja': {
-    'app.title': 'SymbolHub - Unicode シンボルライブラリ',
+    'app.title': 'SymbolHub - Unicode 特殊記号コレクション | コピーしてすぐ使える',
     'nav.search': 'シンボル名・Unicodeで検索...',
     'nav.theme': 'テーマ切替',
     'nav.subtitle': '特殊記号コレクション、コピーしてすぐ使える',
@@ -230,7 +230,7 @@ export const i18n = {
     'search.hint': '別のキーワードをお試しください'
   },
   'ko': {
-    'app.title': 'SymbolHub - Unicode 심볼 라이브러리',
+    'app.title': 'SymbolHub - Unicode 특수 기호 모음 | 복사하면 바로 사용 가능',
     'nav.search': '심볼 이름, Unicode 검색...',
     'nav.theme': '테마 전환',
     'nav.subtitle': '특수 기호 모음, 복사하면 바로 사용 가능',
@@ -305,7 +305,7 @@ export const i18n = {
     'search.hint': '다른 키워드를 시도하세요'
   },
   'es': {
-    'app.title': 'SymbolHub - Biblioteca de Símbolos Unicode',
+    'app.title': 'SymbolHub - Colección de Símbolos Unicode | Copia y Usa al Instante',
     'nav.search': 'Buscar símbolos, nombres, Unicode...',
     'nav.theme': 'Cambiar tema',
     'nav.subtitle': 'Colección de símbolos especiales, copia y usa al instante',
@@ -380,7 +380,7 @@ export const i18n = {
     'search.hint': 'Prueba con otras palabras'
   },
   'fr': {
-    'app.title': 'SymbolHub - Bibliothèque de Symboles Unicode',
+    'app.title': 'SymbolHub - Collection de Symboles Unicode | Copiez et Utilisez Instantanément',
     'nav.search': 'Rechercher symboles, noms, Unicode...',
     'nav.theme': 'Changer le thème',
     'nav.subtitle': 'Collection de symboles spéciaux, copiez et utilisez instantanément',
@@ -455,7 +455,7 @@ export const i18n = {
     'search.hint': 'Essayez d\'autres mots-clés'
   },
   'de': {
-    'app.title': 'SymbolHub - Unicode-Symbolbibliothek',
+    'app.title': 'SymbolHub - Unicode-Symbol-Sammlung | Kopieren und Sofort Verwenden',
     'nav.search': 'Symbole, Namen, Unicode suchen...',
     'nav.theme': 'Thema wechseln',
     'nav.subtitle': 'Spezielle Symbol-Sammlung, kopieren und sofort verwenden',
