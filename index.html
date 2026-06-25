@@ -55,9 +55,17 @@
     </script>
 
     <!-- Analytics (Baidu for CN, GA4 for others) -->
+    <!-- 静态 GA4 标签（用于 Google 验证） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SCK086KN0D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SCK086KN0D');
+    </script>
+
     <script>
       const BAIDU_ID = "6524bc9edbc2e238c18eb01bdb4c6c6b";
-      const GA4_ID = "G-SCK086KN0D";
 
       function loadBaidu() {
         window._hmt = window._hmt || [];
@@ -65,21 +73,6 @@
         hm.src = "https://hm.baidu.com/hm.js?" + BAIDU_ID;
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
-      }
-
-      function loadGA4() {
-        // 先初始化 gtag 函数
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', GA4_ID);
-
-        // 再加载 gtag.js
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-        document.head.appendChild(s);
       }
 
       // 使用 ip-api.com (国内可用) 检测地区
@@ -91,9 +84,8 @@
           var data = JSON.parse(xhr.responseText);
           if (data.countryCode === 'CN') {
             loadBaidu();
-          } else {
-            loadGA4();
           }
+          // 海外用户 GA4 已通过静态标签加载
         } else {
           loadBaidu(); // 默认国内
         }
