@@ -84,7 +84,7 @@
 
       // 使用 ip-api.com (国内可用) 检测地区
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://ip-api.com/json/?fields=countryCode', true);
+      xhr.open('GET', 'https://ip-api.com/json/?fields=countryCode', true);
       xhr.timeout = 3000;
       xhr.onload = function() {
         if (xhr.status === 200) {
