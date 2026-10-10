@@ -18,8 +18,8 @@ npm run build
 # Preview production build locally
 npm run preview
 
-# Deploy to remote server (requires SSH key)
-npm run build && rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" dist/ root@REDACTED_HOST:/var/www/sites/index/symbolhub/
+# Deploy to remote server (see Deployment section for required config)
+npm run build && .claude/skills/deploy.sh <target_directory>
 ```
 
 ## Architecture
@@ -136,19 +136,47 @@ base: '/symbolhub/'  // Required for subdirectory deployment
 
 **使用 Deploy Skill:**
 
-```bash
-# 部署到指定目录
-.claude/skills/deploy.sh /var/www/sites/index/symbolhub/
+服务器信息不写入仓库。首次使用前，复制模板并填入自己的配置（`deploy.env` 已被 git 忽略）：
 
-# 或者在 Claude Code 中调用
-# Claude Code 会自动执行构建并部署
+```bash
+cp .claude/deploy.env.example .claude/deploy.env
+# 编辑 .claude/deploy.env 填入 SYMBOLHUB_HOST / SYMBOLHUB_USER / SYMBOLHUB_SSH_KEY / SYMBOLHUB_TARGET_DIR
 ```
 
-**配置信息：**
-- 服务器：`REDACTED_HOST`
-- 用户：`root`
-- SSH 密钥：`~/.ssh/id_rsa`
-- 默认部署目录：`/var/www/sites/index/symbolhub/`
+然后执行部署：
+
+```bash
+# 部署到指定目录
+.claude/skills/deploy.sh <target_directory>
+
+# 或者在 Claude Code 中调用，会自动构建并部署
+```
+
+也可直接用环境变量覆盖（无需配置文件）：
+
+- `SYMBOLHUB_HOST` — 服务器地址（必填）
+- `SYMBOLHUB_USER` — SSH 用户，默认 `root`
+- `SYMBOLHUB_SSH_KEY` — 私钥路径，默认 `$HOME/.ssh/id_rsa`
+- `SYMBOLHUB_TARGET_DIR` — 部署目录，也可作为第一个参数传入
+
+### Wishlist API（`api/wishlist.php`）
+
+心愿单接口，服务端配置放在 **`api/config.php`**（不进仓库，参考 `api/config.php.example`）：
+
+- `token` — 管理操作所需的共享密钥，用 `openssl rand -hex 32` 生成
+- `dataFile` — 提交数据存放路径（含用户邮箱，建议放到 web 根目录之外）
+
+首次部署后需在服务器上手动创建该文件（`api/` 的 rsync 不带 `--delete`，会保留）。
+
+权限约定：
+
+| 操作 | 鉴权 |
+|---|---|
+| `POST`（提交心愿） | 公开 |
+| `GET`（读取列表，含邮箱） | 需 `X-Auth-Token` 头 |
+| `PUT`（修改状态） | 需 `X-Auth-Token` 头 |
+
+管理页 `/symbolhub/admin.html` 首次访问会提示输入 token，保存在浏览器 localStorage。
 
 ### Performance Notes
 
