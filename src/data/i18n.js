@@ -77,7 +77,16 @@ export const i18n = {
     'recent.clearAll': '全部清空',
     'recent.cancel': '取消',
     'search.noResults': '未找到匹配的符号',
-    'search.hint': '试试其他关键词'
+    'search.hint': '试试其他关键词',
+    'cookie.banner.text': '本站使用 Cookie 来提供「最近使用」等个性化功能。您可以选择接受或拒绝。',
+    'cookie.accept': '接受',
+    'cookie.reject': '拒绝',
+    'cookie.toggle': 'Cookie 设置',
+    'wishlist.title': '心愿单',
+    'wishlist.placeholder': '你希望加入哪些符号？',
+    'wishlist.email': '邮箱（可选，便于回访联系）',
+    'wishlist.submit': '提交心愿',
+    'wishlist.success': '心愿已提交，感谢您的建议！'
   },
   'en': {
     'app.title': 'SymbolHub - Unicode Symbol Library | Copy & Use Instantly',
@@ -152,7 +161,16 @@ export const i18n = {
     'recent.clearAll': 'Clear all',
     'recent.cancel': 'Cancel',
     'search.noResults': 'No matching symbols found',
-    'search.hint': 'Try different keywords'
+    'search.hint': 'Try different keywords',
+    'cookie.banner.text': 'We use cookies to provide features like "Recent Symbols". You can accept or reject.',
+    'cookie.accept': 'Accept',
+    'cookie.reject': 'Reject',
+    'cookie.toggle': 'Cookie Settings',
+    'wishlist.title': 'Wishlist',
+    'wishlist.placeholder': 'What symbols would you like to see?',
+    'wishlist.email': 'Email (optional, for follow-up)',
+    'wishlist.submit': 'Submit',
+    'wishlist.success': 'Wishlist submitted, thank you!'
   },
   'ja': {
     'app.title': 'SymbolHub - Unicode 特殊記号コレクション | コピーしてすぐ使える',
@@ -227,7 +245,16 @@ export const i18n = {
     'recent.clearAll': 'すべてクリア',
     'recent.cancel': 'キャンセル',
     'search.noResults': '一致するシンボルが見つかりません',
-    'search.hint': '別のキーワードをお試しください'
+    'search.hint': '別のキーワードをお試しください',
+    'cookie.banner.text': '「最近使用」などのパーソナル機能のためにCookieを使用しています。承認または拒否できます。',
+    'cookie.accept': '承認',
+    'cookie.reject': '拒否',
+    'cookie.toggle': 'Cookie設定',
+    'wishlist.title': 'ウィッシュリスト',
+    'wishlist.placeholder': 'どのシンボルを追加したいですか？',
+    'wishlist.email': 'メールアドレス（任意）',
+    'wishlist.submit': '送信',
+    'wishlist.success': 'ウィッシュリストを送信しました！'
   },
   'ko': {
     'app.title': 'SymbolHub - Unicode 특수 기호 모음 | 복사하면 바로 사용 가능',
@@ -302,7 +329,16 @@ export const i18n = {
     'recent.clearAll': '모두 삭제',
     'recent.cancel': '취소',
     'search.noResults': '일치하는 심볼이 없습니다',
-    'search.hint': '다른 키워드를 시도하세요'
+    'search.hint': '다른 키워드를 시도하세요',
+    'cookie.banner.text': '"최근 사용"과 같은 개인화 기능을 위해 쿠키를 사용합니다. 수락하거나 거부할 수 있습니다.',
+    'cookie.accept': '수락',
+    'cookie.reject': '거부',
+    'cookie.toggle': '쿠키 설정',
+    'wishlist.title': '위시리스트',
+    'wishlist.placeholder': '어떤 심볼을 추가하고 싶으신가요?',
+    'wishlist.email': '이메일 (선택사항)',
+    'wishlist.submit': '제출',
+    'wishlist.success': '위시리스트가 제출되었습니다!'
   },
   'es': {
     'app.title': 'SymbolHub - Colección de Símbolos Unicode | Copia y Usa al Instante',
@@ -377,7 +413,16 @@ export const i18n = {
     'recent.clearAll': 'Borrar todo',
     'recent.cancel': 'Cancelar',
     'search.noResults': 'No se encontraron símbolos',
-    'search.hint': 'Prueba con otras palabras'
+    'search.hint': 'Prueba con otras palabras',
+    'cookie.banner.text': 'Usamos cookies para funciones como "Símbolos recientes". Puede aceptar o rechazar.',
+    'cookie.accept': 'Aceptar',
+    'cookie.reject': 'Rechazar',
+    'cookie.toggle': 'Configuración de cookies',
+    'wishlist.title': 'Lista de deseos',
+    'wishlist.placeholder': '¿Qué símbolos te gustaría ver?',
+    'wishlist.email': 'Correo electrónico (opcional)',
+    'wishlist.submit': 'Enviar',
+    'wishlist.success': '¡Lista de deseos enviada!'
   },
   'fr': {
     'app.title': 'SymbolHub - Collection de Symboles Unicode | Copiez et Utilisez Instantanément',
@@ -452,7 +497,16 @@ export const i18n = {
     'recent.clearAll': 'Tout effacer',
     'recent.cancel': 'Annuler',
     'search.noResults': 'Aucun symbole trouvé',
-    'search.hint': 'Essayez d\'autres mots-clés'
+    'search.hint': 'Essayez d\'autres mots-clés',
+    'cookie.banner.text': 'Nous utilisons des cookies pour des fonctionnalités comme les « Symboles récents ». Vous pouvez accepter ou refuser.',
+    'cookie.accept': 'Accepter',
+    'cookie.reject': 'Refuser',
+    'cookie.toggle': 'Paramètres des cookies',
+    'wishlist.title': 'Liste de souhaits',
+    'wishlist.placeholder': 'Quels symboles aimeriez-vous voir ?',
+    'wishlist.email': 'E-mail (facultatif)',
+    'wishlist.submit': 'Envoyer',
+    'wishlist.success': 'Liste de souhaits envoyée !'
   },
   'de': {
     'app.title': 'SymbolHub - Unicode-Symbol-Sammlung | Kopieren und Sofort Verwenden',
@@ -527,6 +581,15 @@ export const i18n = {
     'recent.clearAll': 'Alle löschen',
     'recent.cancel': 'Abbrechen',
     'search.noResults': 'Keine Symbole gefunden',
-    'search.hint': 'Versuchen Sie andere Suchbegriffe'
+    'search.hint': 'Versuchen Sie andere Suchbegriffe',
+    'cookie.banner.text': 'Wir verwenden Cookies für Funktionen wie „Zuletzt verwendet". Sie können akzeptieren oder ablehnen.',
+    'cookie.accept': 'Akzeptieren',
+    'cookie.reject': 'Ablehnen',
+    'cookie.toggle': 'Cookie-Einstellungen',
+    'wishlist.title': 'Wunschliste',
+    'wishlist.placeholder': 'Welche Symbole möchten Sie sehen?',
+    'wishlist.email': 'E-Mail (optional)',
+    'wishlist.submit': 'Senden',
+    'wishlist.success': 'Wunschliste gesendet!'
   }
 }

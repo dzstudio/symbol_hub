@@ -7,6 +7,7 @@ import { useSearch } from './composables/useSearch.js'
 import { useRecent } from './composables/useRecent.js'
 import { useClipboard } from './composables/useClipboard.js'
 import { useScrollSpy } from './composables/useScrollSpy.js'
+import { useCookieConsent } from './composables/useCookieConsent.js'
 
 import AppNavbar from './components/AppNavbar.vue'
 import SymbolGrid from './components/SymbolGrid.vue'
@@ -15,6 +16,8 @@ import RecentSection from './components/RecentSection.vue'
 import FloatingNav from './components/FloatingNav.vue'
 import SettingsModal from './components/SettingsModal.vue'
 import ToastContainer from './components/ToastContainer.vue'
+import CookieBanner from './components/CookieBanner.vue'
+import WishlistPanel from './components/WishlistPanel.vue'
 
 // composables
 const { theme, setTheme, cycleTheme } = useTheme()
@@ -22,6 +25,7 @@ const { lang, t, setLang, supportedLangs } = useI18n()
 const { query, results, isSearching, setQuery, clearSearch } = useSearch()
 const { recent, add: addRecent, removeRecent } = useRecent()
 const { copy } = useClipboard()
+const { consentGiven, bannerVisible, accept, reject, toggleBanner } = useCookieConsent()
 
 // scroll spy (plain array, not computed — categories is static)
 const sectionIds = categories.map(c => 'cat-' + c.id)
@@ -57,7 +61,7 @@ function showToast(message) {
 async function handleCopy(char) {
   const ok = await copy(char)
   if (ok) {
-    addRecent(char)
+    if (consentGiven.value) addRecent(char)
     showToast(t('toast.copied') + ' ' + char)
   }
 }
@@ -96,7 +100,7 @@ function handleClearRecent(count) {
   <div class="app-layout">
     <main class="main-content">
       <RecentSection
-        v-if="!isSearching"
+        v-if="!isSearching && consentGiven"
         :recent="recent"
         :t="t"
         @copy="handleCopy"
@@ -130,6 +134,20 @@ function handleClearRecent(count) {
     :t="t"
     @close="showSettings = false"
     @set-theme="setTheme"
+  />
+
+  <WishlistPanel
+    v-if="consentGiven"
+    :t="t"
+    :show-toast="showToast"
+  />
+
+  <CookieBanner
+    :banner-visible="bannerVisible"
+    :t="t"
+    @accept="accept"
+    @reject="reject"
+    @toggle="toggleBanner"
   />
 
   <ToastContainer :toasts="toasts" />

@@ -4,6 +4,7 @@
    ============================================ */
 :root {
   --bg-gradient: linear-gradient(135deg, #e0f7f6 0%, #eafafa 30%, #ffffff 70%);
+  --bg-solid: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.72);
   --bg-glass-hover: rgba(255, 255, 255, 0.85);
   --bg-glass-active: rgba(255, 255, 255, 0.92);
@@ -32,6 +33,7 @@
 
 [data-theme="dark"] {
   --bg-gradient: linear-gradient(135deg, #0a1a1a 0%, #0d1117 50%, #111827 100%);
+  --bg-solid: #0d1117;
   --bg-glass: rgba(20, 30, 30, 0.6);
   --bg-glass-hover: rgba(30, 45, 45, 0.75);
   --bg-glass-active: rgba(40, 55, 55, 0.85);

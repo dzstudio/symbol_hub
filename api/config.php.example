@@ -1,0 +1,16 @@
+<?php
+// Copy this file to api/config.php and fill in your own values.
+// api/config.php is git-ignored and must NEVER be committed.
+//
+// Generate a token with:
+//   openssl rand -hex 32
+
+return [
+    // Shared secret required by admin operations (GET list / PUT status).
+    'token' => 'REPLACE_WITH_A_LONG_RANDOM_TOKEN',
+
+    // Where submissions are stored. This file contains user-submitted email
+    // addresses (PII), so ideally point it OUTSIDE the web root.
+    // Default: alongside this API (api/wishlist.json).
+    'dataFile' => __DIR__ . '/wishlist.json',
+];
