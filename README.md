@@ -135,4 +135,4 @@ openssl rand -hex 32
 
 ## 许可证
 
-本项目暂未声明开源许可证。如需公开复用，请先补充 `LICENSE` 文件。
+本项目基于 [MIT 许可证](LICENSE) 开源。
