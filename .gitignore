@@ -35,6 +35,22 @@ pnpm-debug.log*
 .vscode/
 *.swp
 *.swo
+.history/
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Caches
+.cache/
+.temp/
+.tmp/
+
+# Build / archive artifacts
+*.bak
+*.orig
+*.rej
+*.tgz
 
 # Agent local state
 .superpowers/
